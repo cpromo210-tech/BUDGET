@@ -90,12 +90,16 @@ input.num:focus{border-bottom-color:#FFE020;}
 .quicklabel{font-size:0.55rem;letter-spacing:1.5px;color:#666;text-transform:uppercase;}
 .quickbtn{background:#FF50500F;border:1px solid #FF505044;color:#FF8080;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:1px;cursor:pointer;padding:5px 11px;}
 .quickbtn:hover{background:#FF505022;border-color:#FF5050;}
+.closerow{margin-top:12px;}
+.closebtn{width:100%;background:#4FE08018;border:2px solid #4FE08066;color:#4FE080;font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:1.5px;cursor:pointer;padding:11px;text-transform:uppercase;font-weight:500;}
+.closebtn:hover{background:#4FE08033;border-color:#4FE080;}
+.closehint{font-size:0.52rem;color:#557;letter-spacing:0.5px;margin-top:5px;text-align:center;text-transform:uppercase;}
 </style></head>
 <body>
 <div id="badge" class="badge"></div>
 <div class="mt" id="app"></div>
 <script>
-const DEFAULTS={"junEnd":1554,"jdMonths":[{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":220},{"n":"Extra hustle","a":405},{"n":"Plasma remainder","a":175},{"n":"Gift / other","a":650}],"bills":[{"n":"Phone (intl+late)","a":258},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Misc","a":60},{"n":"Subs+Apple","a":62},{"n":"Credit card min","a":75},{"n":"Klarna","a":77},{"n":"Affirm","a":177},{"n":"CC payoff","a":310}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Credit card min","a":25},{"n":"Kikoff (last)","a":70},{"n":"Klarna","a":22},{"n":"Affirm","a":177},{"n":"CC payoff","a":300}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"CC payoff (final)","a":500},{"n":"Klarna","a":20},{"n":"Affirm","a":177}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Paycheck 3 (13th)","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]}],"gas26":240,"fun26":200,"plasma2":false,"jewelry":false,"monthOverrides":[null,null,null,null,null,null],"sal27":"48k","childSup":true,"bills27":{"insurance":273,"car":605,"phone":134,"loans":50,"subs":62,"hair":110},"food27":240,"gas27":200,"rent":1000,"csAmount":450,"foodDrops":true,"funMode":"mid","hysaRate":4.5,"etfRate":8,"efTarget":3000,"phase":0,"openMonth":2,"currentMonthIdx":0,"discretionary":[0,0,0,0,0,0]};
+const DEFAULTS={"junEnd":1554,"jdMonths":[{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":220},{"n":"Extra hustle","a":405},{"n":"Plasma remainder","a":175},{"n":"Gift / other","a":650}],"bills":[{"n":"Phone (intl+late)","a":258},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Misc","a":60},{"n":"Subs+Apple","a":62},{"n":"Credit card min","a":75},{"n":"Klarna","a":77},{"n":"Affirm","a":177},{"n":"CC payoff","a":310}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Credit card min","a":25},{"n":"Kikoff (last)","a":70},{"n":"Klarna","a":22},{"n":"Affirm","a":177},{"n":"CC payoff","a":300}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"CC payoff (final)","a":500},{"n":"Klarna","a":20},{"n":"Affirm","a":177}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Paycheck 3 (13th)","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]},{"income":[{"n":"Paycheck 1","a":1397},{"n":"Paycheck 2","a":1397},{"n":"Side income","a":440}],"bills":[{"n":"Phone","a":134},{"n":"Insurance","a":273},{"n":"Car","a":605},{"n":"Hair","a":110},{"n":"Subs+Apple","a":62},{"n":"Affirm","a":132}]}],"gas26":240,"fun26":200,"plasma2":false,"jewelry":false,"monthOverrides":[null,null,null,null,null,null],"sal27":"48k","childSup":true,"bills27":{"insurance":273,"car":605,"phone":134,"loans":50,"subs":62,"hair":110},"food27":240,"gas27":200,"rent":1000,"csAmount":450,"foodDrops":true,"funMode":"mid","hysaRate":4.5,"etfRate":8,"efTarget":3000,"phase":0,"openMonth":2,"currentMonthIdx":0,"discretionary":[0,0,0,0,0,0],"closedMonths":[false,false,false,false,false,false]};
 const DATA_VERSION="2026-07-01-a";
 const NET_48K=1740,NET_60K=2075,SIDE_27=220,PM_ETF=500;
 const JD_MO=["July","August","September","October","November","December"];
@@ -131,6 +135,27 @@ function toggleDone(mi,type,li){var m=S.jdMonths.slice();var month=Object.assign
 function addDisc(i,amt){var d=S.discretionary.slice();d[i]=Math.round(((Number(d[i])||0)+amt)*100)/100;S.discretionary=d;save();render();}
 function setDisc(i,v){var d=S.discretionary.slice();d[i]=(v===""||v==null)?0:Number(v);S.discretionary=d;save();render();}
 function setCurrentMonth(i){S.currentMonthIdx=i;S.openMonth=i;save();render();}
+var pendingClose=false;  // in-page confirm state (no blocking dialogs — they fail in iPhone web apps)
+function askClose(){pendingClose=true;render();}
+function cancelClose(){pendingClose=false;render();}
+function closeMonth(i){
+  var C=calc();
+  var finalBal=C.liveBalance;
+  // lock this month final balance as its override
+  var mo=S.monthOverrides.slice(); mo[i]=finalBal; S.monthOverrides=mo;
+  // mark closed
+  var cl=(S.closedMonths||[false,false,false,false,false,false]).slice(); cl[i]=true; S.closedMonths=cl;
+  // advance to next month
+  if(i<5){ S.currentMonthIdx=i+1; S.openMonth=i+1; }
+  pendingClose=false;
+  save(); render();
+}
+function reopenMonth(i){
+  var mo=S.monthOverrides.slice(); mo[i]=null; S.monthOverrides=mo;
+  var cl=S.closedMonths.slice(); cl[i]=false; S.closedMonths=cl;
+  S.currentMonthIdx=i; S.openMonth=i;
+  save(); render();
+}
 function setBill27(k,v){S.bills27=Object.assign({},S.bills27,{[k]:v});save();render();}
 function resetAll(){if(confirm("Reset everything to default? Edits lost.")){S=Object.assign({},DEFAULTS);save();render();}}
 function fmt(n){if(n==null||isNaN(n))return"$0";var s=Math.abs(Math.round(n)).toLocaleString("en-US");return(n<0?"-$":"$")+s;}
@@ -212,19 +237,31 @@ function render(){
   if(S.phase===0){
     // ===== LIVE LEDGER — CURRENT BALANCE for current month =====
     var cmName=JD_MO[S.currentMonthIdx];
+    var cmi=S.currentMonthIdx;
     var liveBal=C.liveBalance;
     var projEnd=C.projEnd;
     h+='<div class="livebox">';
     h+='<div class="livetop"><span class="livelabel">CURRENT BALANCE · '+cmName.toUpperCase()+'</span><span class="liveedit">check off income/bills below as they happen</span></div>';
     h+='<div class="livenum">'+fmt(liveBal)+'</div>';
-    h+='<div class="livesub">what you have right now · projected '+cmName.slice(0,3)+' end: <span style="color:#FFE020">'+fmt(projEnd)+'</span> → flows to Dec</div>';
+    var startBalCur=C.jd[cmi].startBal;
+    var nothingChecked=(liveBal===startBalCur);
+    h+='<div class="livesub">'+(nothingChecked?'starting '+cmName.slice(0,3)+' balance (carried in) — check off income/bills as they land':'what you have right now')+'<br>projected '+cmName.slice(0,3)+' end: <span style="color:#FFE020">'+fmt(projEnd)+'</span> → flows to year-end</div>';
     h+='<div class="quickrow"><span class="quicklabel">log a purchase:</span>';
     [10,20,50,100].forEach(function(amt){h+='<button class="quickbtn" onclick="addDisc('+S.currentMonthIdx+','+amt+')">−$'+amt+'</button>';});
     h+='<span class="iwrap" style="color:#FF8080;margin-left:4px">−$<input class="num" style="width:54px;color:#FF8080;border-bottom-color:#FF505055" type="number" id="customsub" placeholder="0"></span><button class="quickbtn" onclick="var v=document.getElementById(\'customsub\').value;if(v){addDisc('+S.currentMonthIdx+',Number(v));}">go</button>';
     h+='</div>';
     if(Number(S.discretionary[S.currentMonthIdx])>0){h+='<div class="quickrow"><span class="quicklabel" style="color:#FF8080">discretionary spent this month: '+fmt(S.discretionary[S.currentMonthIdx])+'</span><button class="quickbtn" style="border-color:#333;color:#888" onclick="setDisc('+S.currentMonthIdx+',0)">clear</button></div>';}
-    h+='<div class="quickrow"><span class="quicklabel">current month:</span>';
-    JD_MO.forEach(function(mo,mi){h+='<button class="quickbtn" style="'+(S.currentMonthIdx===mi?'background:#4FE08033;border-color:#4FE080;color:#4FE080':'border-color:#333;color:#666')+'" onclick="setCurrentMonth('+mi+')">'+mo.slice(0,3)+'</button>';});
+    // CLOSE OUT MONTH — two-tap in-page confirm (blocking dialogs fail in iPhone web apps)
+    var nextMo=cmi<5?JD_MO[cmi+1].slice(0,3):null;
+    if(!pendingClose){
+      h+='<div class="closerow"><button class="closebtn" onclick="askClose()">✓ Close out '+cmName.slice(0,3)+(nextMo?' → start '+nextMo:' (final month)')+'</button></div>';
+      h+='<div class="closehint">locks '+cmName.slice(0,3)+' at '+fmt(liveBal)+', then '+(nextMo?nextMo+' starts with that carried in':'done for the year')+'</div>';
+    }else{
+      h+='<div class="closerow" style="display:flex;gap:8px"><button class="closebtn" style="background:#4FE080;color:#080808;flex:1" onclick="closeMonth('+cmi+')">✓ YES, close '+cmName.slice(0,3)+' at '+fmt(liveBal)+'</button><button class="closebtn" style="border-color:#555;color:#888;flex:0 0 90px" onclick="cancelClose()">cancel</button></div>';
+      h+='<div class="closehint" style="color:#FFE020">confirm: '+cmName.slice(0,3)+' locks at '+fmt(liveBal)+(nextMo?' → '+nextMo+' starts there':'')+'</div>';
+    }
+    h+='<div class="quickrow"><span class="quicklabel">jump to month:</span>';
+    JD_MO.forEach(function(mo,mi){var closed=S.closedMonths&&S.closedMonths[mi];h+='<button class="quickbtn" style="'+(S.currentMonthIdx===mi?'background:#4FE08033;border-color:#4FE080;color:#4FE080':closed?'border-color:#4FE08033;color:#4FE08088':'border-color:#333;color:#666')+'" onclick="setCurrentMonth('+mi+')">'+(closed?'✓':'')+mo.slice(0,3)+'</button>';});
     h+='</div>';
     h+='</div>';
     h+='<div class="g4"><div class="card"><div class="cl">Carry-in</div><div class="cv y" style="font-size:1.2rem">'+fmt(S.junEnd)+'</div></div><div class="card"><div class="cl">Dec SPAXX</div><div class="cv y" style="font-size:1.2rem">'+fmt(C.decCash)+'</div></div><div class="card"><div class="cl">Checking</div><div class="cv o" style="font-size:1.2rem">'+fmt(C.decEf)+'</div></div><div class="card"><div class="cl">Dec Total</div><div class="cv g" style="font-size:1.2rem">'+fmt(C.decTotal)+'</div></div></div>';
